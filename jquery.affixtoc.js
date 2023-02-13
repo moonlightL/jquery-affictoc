@@ -47,13 +47,13 @@
         headings.each(function(index, domEle) {
             let level = arr.indexOf(this.localName) + 1;
             let text = $(this).text();
-            let id = "t-" + $(this).attr("id");
+            let id = $(this).attr("id");
             if (id) {
                 id = id.replace(/\s+/g,"-");
             } else {
                 id = text.replace(/\s+/g,"-")
             }
-            id = id.replace(/\./g,"-");
+            id = "t-" + id.replace(/\./g,"-");
             $(domEle).attr("id", id);
             lastNumber[level - 1]++;
             for (i = level; i <= 5; i++) {
@@ -94,7 +94,7 @@
         let self = this;
         let allLink = self.$el.find("a");
         let allNavChild = self.$el.find("ul.nav-child");
-        let oldIndex = 0;
+        let oldIndex = -1;
         $(window).scroll(function(e) {
             let scrollTop = $(this).scrollTop();
             if (scrollTop >= self.options.offset) {
