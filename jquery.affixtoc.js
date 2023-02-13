@@ -94,13 +94,20 @@
         let self = this;
         let allLink = self.$el.find("a");
         let allNavChild = self.$el.find("ul.nav-child");
+        let affix = false;
         let oldIndex = -1;
         $(window).scroll(function(e) {
             let scrollTop = $(this).scrollTop();
             if (scrollTop >= self.options.offset) {
-                self.$affix.addClass("affix");
+                if (!affix) {
+                    affix = true;
+                    self.$affix.addClass("affix");
+                }
             } else {
-                self.$affix.removeClass("affix");
+                if (affix) {
+                    affix = false;
+                    self.$affix.removeClass("affix");
+                }
             }
 
             let newIndex = 0;
