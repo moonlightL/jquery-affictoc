@@ -32,6 +32,7 @@ jquery-affictoc 是一款生成文章目录的插件
 <script src="jquery.min.js"></script>
 <script src="jquery.affixtoc.js"></script>
 <script>
+    // .toc-container 装载目录的容器
     $(".toc-container").affixToc({
         affixEle: ".toc-panel",    // 需要固定的容器
         scopeEle: ".post-content", // 搜索文章标题的容器
